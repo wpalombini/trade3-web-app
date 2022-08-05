@@ -46,9 +46,9 @@ jobs:
         with:
           node-version: 16
       - run: |
-          if [ contains(github.event.head_commit.message, 'MAJOR') ]; then
+          if [ ${{ contains(github.event.head_commit.message, 'MAJOR') }} ]; then
             echo "VERSION_TYPE='major'"
-          else if [ contains(github.event.head_commit.message, 'MINOR') ]; then
+          else if [ ${{  contains(github.event.head_commit.message, 'MINOR') }} ]; then
             echo "VERSION_TYPE='minor'"
           else
             echo "VERSION_TYPE='patch'"
