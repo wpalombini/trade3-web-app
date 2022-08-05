@@ -47,11 +47,11 @@ jobs:
           node-version: 16
       - run: |
           if [ ${{ contains(github.event.head_commit.message, 'MAJOR') }} ]; then
-            VERSION_TYPE=$("major")
+            VERSION_TYPE=$('major')
           elif [ ${{  contains(github.event.head_commit.message, 'MINOR') }} ]; then
-            VERSION_TYPE=$("minor")
+            VERSION_TYPE=$('minor')
           else
-            VERSION_TYPE=$("patch")
+            VERSION_TYPE=$('patch')
           fi
       - run: npm version ${VERSION_TYPE}
       - run: VERSION=$(node -p "require('./package.json').version")
