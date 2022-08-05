@@ -48,7 +48,7 @@ jobs:
       - run: |
           if [ ${{ contains(github.event.head_commit.message, 'MAJOR') }} ]; then
             echo "VERSION_TYPE='major'"
-          else if [ ${{  contains(github.event.head_commit.message, 'MINOR') }} ]; then
+          elif [ ${{  contains(github.event.head_commit.message, 'MINOR') }} ]; then
             echo "VERSION_TYPE='minor'"
           else
             echo "VERSION_TYPE='patch'"
