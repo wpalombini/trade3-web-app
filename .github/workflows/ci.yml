@@ -9,6 +9,7 @@ on:
 jobs:
   run-linters:
     runs-on: ubuntu-latest
+    name: Run linters
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -24,6 +25,7 @@ jobs:
 
   run-unit-tests:
     runs-on: ubuntu-latest
+    name: Run unit tests
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
