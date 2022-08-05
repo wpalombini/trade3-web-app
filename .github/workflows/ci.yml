@@ -53,7 +53,7 @@ jobs:
           elif [ ${{  contains(github.event.head_commit.message, 'MINOR') }} ]; then
             VERSION_TYPE=minor
           else
-            TEST="patch"
+            echo "TEST=patch"
           fi
       - run: echo $TEST
       - run: npm version $TEST
