@@ -53,7 +53,7 @@ jobs:
           else
             VERSION_TYPE='patch'
           fi
-      - run: npm version ${VERSION_TYPE}
+      - run: npm version $VERSION_TYPE
       - run: VERSION=$(node -p "require('./package.json').version")
       - run: git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
       - run: git config user.name "$GITHUB_ACTOR"
