@@ -45,16 +45,15 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: PATCH="patch" MINOR="minor" MAJOR="major" VERSION_TYPE=""
       - run: git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
       - run: git config user.name "$GITHUB_ACTOR"
       - run: |
           if [ ${{ contains(github.event.head_commit.message, 'MAJOR') }} ]; then
-            VERSION_TYPE=$MAJOR
+            VERSION_TYPE=$(echo "major")
           elif [ ${{  contains(github.event.head_commit.message, 'MINOR') }} ]; then
-            VERSION_TYPE=$MINOR
+            VERSION_TYPE=$(echo "minor")
           else
-          echo VERSION_TYPE=$PATCH
+            VERSION_TYPE=$(echo "patch")
           fi
       - run: echo $VERSION_TYPE
       - run: npm version $VERSION_TYPE
