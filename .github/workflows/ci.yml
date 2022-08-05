@@ -52,6 +52,7 @@ jobs:
             VERSION_TYPE='minor'
           else
             VERSION_TYPE='patch'
+            echo "$VERSION_TYPE"
           fi
       - run: echo $VERSION_TYPE
       - run: npm version $VERSION_TYPE
