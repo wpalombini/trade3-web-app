@@ -8,5 +8,4 @@ test('renders title link', () => {
   expect(linkElements).toHaveLength(2);
   expect(linkElements[0]).toBeInTheDocument();
   expect(linkElements[1]).toBeInTheDocument();
-  expect(1 + 1).toBe(0);
 });
