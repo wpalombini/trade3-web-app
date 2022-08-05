@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import CssBaseline from '@mui/material/CssBaseline';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
@@ -12,6 +11,16 @@ const theme = createTheme({
       defaultProps: {
         disableRipple: true,
       },
+    },
+    MuiPaper: {
+      defaultProps: {
+        elevation: 5,
+      },
+    },
+  },
+  palette: {
+    background: {
+      default: '#f5f5f5',
     },
   },
 });
