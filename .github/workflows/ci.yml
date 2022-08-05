@@ -34,8 +34,12 @@ jobs:
       - run: npm ci
       - run: npm test
 
-  version:
+  increment-version:
     runs-on: ubuntu-latest
+    prepare:
+    name: Prepare to clone a new version
+    needs: [run-linters, run-unit-tests]
+    if: ${{ always() && !cancelled() && needs.build.result == 'success' }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
