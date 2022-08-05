@@ -53,10 +53,10 @@ jobs:
           elif [ ${{  contains(github.event.head_commit.message, 'MINOR') }} ]; then
             VERSION_TYPE=minor
           else
-            VERSION_TYPE=patch
+            TEST="patch"
           fi
       - run: echo $TEST
-      - run: npm version patch
+      - run: npm version $TEST
       - run: VERSION=$(node -p "require('./package.json').version")
       - run: git tag ${VERSION}
       - run: git push "https://$GITHUB_ACTOR:${{ secrets.ACCESS_TOKEN }}@github.com/$GITHUB_REPOSITORY.git" --follow-tags
