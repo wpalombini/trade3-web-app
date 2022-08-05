@@ -45,10 +45,17 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
+        run: |
+          if [ contains(github.event.head_commit.message, 'MAJOR') ]; then
+            echo "VERSION_TYPE='major'"
+          else if [ contains(github.event.head_commit.message, 'MINOR') ]; then
+            echo "VERSION_TYPE='minor'"
+          else
+            echo "VERSION_TYPE='patch'"
+      - run: npm version ${VERSION_TYPE}
+      - run: VERSION=$(node -p "require('./package.json').version")
       - run: git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
       - run: git config user.name "$GITHUB_ACTOR"
-      - run: npm version patch
-      - run: VERSION=$(node -p "require('./package.json').version")
       - run: git tag ${VERSION}
       - run: git push "https://$GITHUB_ACTOR:${{ secrets.ACCESS_TOKEN }}@github.com/$GITHUB_REPOSITORY.git" --follow-tags
       - run: git push "https://$GITHUB_ACTOR:${{ secrets.ACCESS_TOKEN }}@github.com/$GITHUB_REPOSITORY.git" --tags
