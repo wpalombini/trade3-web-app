@@ -74,8 +74,8 @@ jobs:
         with:
           node-version: 16
       - run: npm ci
-      - run: VERSION=$(node -p "require('./package.json').version")
-      - run: REACT_APP_VERSION=${VERSION} npm run build
+      - run: REACT_APP_VERSION=$(node -p "require('./package.json').version")
+      - run: npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
