@@ -73,6 +73,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
+        env:
+          REACT_APP_VERSION: $(node -p "require('./package.json').version")
       - run: npm ci && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
