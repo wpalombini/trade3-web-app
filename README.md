@@ -8,3 +8,7 @@
 npm install
 npm start
 ```
+
+## Tools
+
+Prettier, eslint, husky
