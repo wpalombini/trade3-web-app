@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -20,6 +21,8 @@ const Header = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
+  const navigate = useNavigate();
+
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -35,16 +38,22 @@ const Header = () => {
     setAnchorElUser(null);
   };
 
+  const handleNavigateTo = (url: string) => {
+    navigate(url?.toLowerCase());
+    handleCloseNavMenu();
+  };
+
   return (
     <AppBar position="static" sx={{ bgcolor: 'transparent', boxShadow: 'none', transition: 'none' }}>
       <Container maxWidth="md">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} color="primary" />
+
           <Typography
             variant="h6"
             noWrap
-            component="a"
-            href="/"
+            component="button"
+            onClick={() => handleNavigateTo('/')}
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -52,8 +61,9 @@ const Header = () => {
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: 'primary.main',
-              textDecoration: 'none',
-              '&:visited': { color: 'primary.main', textDecoration: 'none' },
+              border: 'none',
+              backgroundColor: 'transparent',
+              cursor: 'pointer',
             }}
           >
             TRADE3
@@ -89,7 +99,7 @@ const Header = () => {
               }}
             >
               {pages.map(page => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem key={page} onClick={() => handleNavigateTo(page)}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
@@ -99,8 +109,8 @@ const Header = () => {
           <Typography
             variant="h5"
             noWrap
-            component="a"
-            href="/"
+            component="button"
+            onClick={() => handleNavigateTo('/')}
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -109,15 +119,20 @@ const Header = () => {
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: 'primary.main',
-              textDecoration: 'none',
-              '&:visited': { color: 'primary.main', textDecoration: 'none' },
+              border: 'none',
+              backgroundColor: 'transparent',
+              cursor: 'pointer',
             }}
           >
             TRADE3
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map(page => (
-              <Button key={page} onClick={handleCloseNavMenu} sx={{ my: 2, color: 'primary.main', display: 'block' }}>
+              <Button
+                key={page}
+                onClick={() => handleNavigateTo(page)}
+                sx={{ my: 2, color: 'primary.main', display: 'block' }}
+              >
                 {page}
               </Button>
             ))}

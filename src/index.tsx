@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import CssBaseline from '@mui/material/CssBaseline';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import App from './App';
+
 import reportWebVitals from './reportWebVitals';
+import AppRoutes from './containers/Routes';
 
 const theme = createTheme({
   components: {
@@ -30,7 +31,7 @@ root.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <App />
+      <AppRoutes />
     </ThemeProvider>
   </React.StrictMode>,
 );
