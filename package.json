@@ -43,6 +43,9 @@
     "prepare": "husky install",
     "serve": "serve -s build"
   },
+  "engines": {
+    "node": "16"
+  },
   "browserslist": {
     "production": [
       ">0.2%",
