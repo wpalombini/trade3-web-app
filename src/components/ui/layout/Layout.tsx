@@ -9,7 +9,12 @@ const Layout = () => {
   return (
     <>
       <Header />
-      <Container maxWidth="md" sx={{ paddingTop: '25px' }}>
+      <Container
+        component="main"
+        maxWidth="md"
+        // minHeight is 100vh height minus header and footer heights
+        sx={{ py: 2, minHeight: { xs: 'calc(100vh - 96px)', md: 'calc(100vh - 125px)' } }}
+      >
         <Outlet />
       </Container>
       <Footer />

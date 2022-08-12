@@ -8,13 +8,11 @@ const Footer = () => {
     <Paper
       component="footer"
       sx={{
-        position: 'fixed',
         width: '100%',
-        bottom: 0,
         bgcolor: 'transparent',
         boxShadow: 'none',
         transition: 'none',
-        padding: '10px',
+        py: { xs: 1, md: 2 },
       }}
     >
       <Typography sx={{ color: 'primary.main', textAlign: 'center' }}>version {getAppVersion()}</Typography>
