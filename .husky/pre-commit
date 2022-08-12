@@ -9,3 +9,6 @@ npm run format:check
 
 # Run tests
 npm run test:coverage
+
+# Run audit
+npm audit -audit-level=critical
