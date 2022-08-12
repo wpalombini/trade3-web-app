@@ -1,4 +1,11 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npm run pre-commit
+# Run linters
+npm run lint:check
+
+# Run formatters
+npm run format:check
+
+# Run tests
+npm run test:coverage
