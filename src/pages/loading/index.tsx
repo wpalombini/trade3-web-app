@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Spinner from '../../components/ui/spinner';
+import Spinner from 'components/ui/spinner';
 
 const LoadingPage = () => (
   <div

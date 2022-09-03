@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
-import { getAppVersion } from '../../../lib/config';
+import { getAppVersion } from 'lib/config';
 
 const Footer = () => {
   return (

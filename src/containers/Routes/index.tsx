@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import Layout from '../../components/ui/layout/Layout';
-import BlogPage from '../../pages/blog';
-import HomePage from '../../pages/home';
-import NotFoundPage from '../../pages/not-found';
-import PricingPage from '../../pages/pricing';
-import ProductsPage from '../../pages/products';
+import Layout from 'components/ui/layout/Layout';
+import BlogPage from 'pages/blog';
+import HomePage from 'pages/home';
+import NotFoundPage from 'pages/not-found';
+import PricingPage from 'pages/pricing';
+import ProductsPage from 'pages/products';
 
 const AppRoutes = () => {
   return (

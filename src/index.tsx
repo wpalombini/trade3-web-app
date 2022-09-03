@@ -4,7 +4,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import reportWebVitals from './reportWebVitals';
-import AppRoutes from './containers/Routes';
+import AppRoutes from 'containers/Routes';
 
 const theme = createTheme({
   components: {
