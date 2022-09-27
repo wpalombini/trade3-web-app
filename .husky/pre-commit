@@ -11,4 +11,4 @@ npm run format:check
 npm run test:coverage
 
 # Run audit
-npm audit -audit-level=critical
+npm audit -audit-level=critical --omit=dev
